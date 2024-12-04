@@ -10,6 +10,7 @@ var json_NAPS_5 = {
 { "type": "Feature", "properties": { "id": null, "NRO_POSTE": null, "DOMO_RAIZ": null, "ETIQUETA": null, "HILO": null, "POTENCIA": null, "CORE": null, "TRJ_OLT": null, "PORT_OLT": null }, "geometry": { "type": "Point", "coordinates": [ -79.628296872754362, -4.034549920436202 ] } },
 { "type": "Feature", "properties": { "id": null, "NRO_POSTE": null, "DOMO_RAIZ": null, "ETIQUETA": null, "HILO": null, "POTENCIA": null, "CORE": null, "TRJ_OLT": null, "PORT_OLT": null }, "geometry": { "type": "Point", "coordinates": [ -79.628501572415814, -4.03235927531155 ] } },
 { "type": "Feature", "properties": { "id": null, "NRO_POSTE": null, "DOMO_RAIZ": null, "ETIQUETA": null, "HILO": null, "POTENCIA": null, "CORE": null, "TRJ_OLT": null, "PORT_OLT": null }, "geometry": { "type": "Point", "coordinates": [ -79.626723482211574, -4.033360311282907 ] } },
-{ "type": "Feature", "properties": { "id": null, "NRO_POSTE": null, "DOMO_RAIZ": null, "ETIQUETA": null, "HILO": null, "POTENCIA": null, "CORE": null, "TRJ_OLT": null, "PORT_OLT": null }, "geometry": { "type": "Point", "coordinates": [ -79.622313937440822, -4.034792902838767 ] } }
+{ "type": "Feature", "properties": { "id": null, "NRO_POSTE": null, "DOMO_RAIZ": null, "ETIQUETA": null, "HILO": null, "POTENCIA": null, "CORE": null, "TRJ_OLT": null, "PORT_OLT": null }, "geometry": { "type": "Point", "coordinates": [ -79.622313937440822, -4.034792902838767 ] } },
+{ "type": "Feature", "properties": { "id": null, "NRO_POSTE": null, "DOMO_RAIZ": null, "ETIQUETA": null, "HILO": null, "POTENCIA": null, "CORE": null, "TRJ_OLT": null, "PORT_OLT": null }, "geometry": { "type": "Point", "coordinates": [ -79.627145704300233, -4.036443494324823 ] } }
 ]
 }
