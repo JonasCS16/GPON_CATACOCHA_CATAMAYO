@@ -43,13 +43,13 @@
         <script src="data/POSTES_CNT_1.js"></script>
         <script src="data/POSTES_EERSSA_2.js"></script>
         <script src="data/FIBRA_ADSS_08H_3.js"></script>
-        <script src="data/DOMOS_4.js"></script>
-        <script src="data/NAPS_5.js"></script>
-        <script src="data/MANGAS_LINEALES_6.js"></script>
+        <script src="data/MANGAS_LINEALES_4.js"></script>
+        <script src="data/DOMOS_5.js"></script>
+        <script src="data/NAPS_6.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[-4.03806578946783,-79.63995302248013],[-4.020305106618208,-79.61065913503457]]);
+        }).fitBounds([[-4.0378130294659496,-79.63682928520561],[-4.011171851709512,-79.59288845403793]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -257,7 +257,7 @@
         });
         bounds_group.addLayer(layer_FIBRA_ADSS_08H_3);
         map.addLayer(layer_FIBRA_ADSS_08H_3);
-        function pop_DOMOS_4(feature, layer) {
+        function pop_MANGAS_LINEALES_4(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
@@ -274,9 +274,63 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_DOMOS_4_0() {
+        function style_MANGAS_LINEALES_4_0() {
             return {
-                pane: 'pane_DOMOS_4',
+                pane: 'pane_MANGAS_LINEALES_4',
+                shape: 'diamond',
+                radius: 6.4,
+                opacity: 1,
+                color: 'rgba(255,127,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,127,0,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_MANGAS_LINEALES_4');
+        map.getPane('pane_MANGAS_LINEALES_4').style.zIndex = 404;
+        map.getPane('pane_MANGAS_LINEALES_4').style['mix-blend-mode'] = 'normal';
+        var layer_MANGAS_LINEALES_4 = new L.geoJson(json_MANGAS_LINEALES_4, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_MANGAS_LINEALES_4',
+            layerName: 'layer_MANGAS_LINEALES_4',
+            pane: 'pane_MANGAS_LINEALES_4',
+            onEachFeature: pop_MANGAS_LINEALES_4,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_MANGAS_LINEALES_4_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_MANGAS_LINEALES_4);
+        map.addLayer(layer_MANGAS_LINEALES_4);
+        function pop_DOMOS_5(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">ETIQUETA</th>\
+                        <td>' + (feature.properties['ETIQUETA'] !== null ? autolinker.link(feature.properties['ETIQUETA'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_DOMOS_5_0() {
+            return {
+                pane: 'pane_DOMOS_5',
                 shape: 'diamond',
                 radius: 6.8,
                 opacity: 1,
@@ -291,27 +345,27 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_DOMOS_4');
-        map.getPane('pane_DOMOS_4').style.zIndex = 404;
-        map.getPane('pane_DOMOS_4').style['mix-blend-mode'] = 'normal';
-        var layer_DOMOS_4 = new L.geoJson(json_DOMOS_4, {
+        map.createPane('pane_DOMOS_5');
+        map.getPane('pane_DOMOS_5').style.zIndex = 405;
+        map.getPane('pane_DOMOS_5').style['mix-blend-mode'] = 'normal';
+        var layer_DOMOS_5 = new L.geoJson(json_DOMOS_5, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_DOMOS_4',
-            layerName: 'layer_DOMOS_4',
-            pane: 'pane_DOMOS_4',
-            onEachFeature: pop_DOMOS_4,
+            dataVar: 'json_DOMOS_5',
+            layerName: 'layer_DOMOS_5',
+            pane: 'pane_DOMOS_5',
+            onEachFeature: pop_DOMOS_5,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.shapeMarker(latlng, style_DOMOS_4_0(feature));
+                return L.shapeMarker(latlng, style_DOMOS_5_0(feature));
             },
         });
-        bounds_group.addLayer(layer_DOMOS_4);
-        map.addLayer(layer_DOMOS_4);
-        function pop_NAPS_5(feature, layer) {
+        bounds_group.addLayer(layer_DOMOS_5);
+        map.addLayer(layer_DOMOS_5);
+        function pop_NAPS_6(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
@@ -356,9 +410,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_NAPS_5_0() {
+        function style_NAPS_6_0() {
             return {
-                pane: 'pane_NAPS_5',
+                pane: 'pane_NAPS_6',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(228,18,207,1.0)',
@@ -372,80 +426,26 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_NAPS_5');
-        map.getPane('pane_NAPS_5').style.zIndex = 405;
-        map.getPane('pane_NAPS_5').style['mix-blend-mode'] = 'normal';
-        var layer_NAPS_5 = new L.geoJson(json_NAPS_5, {
+        map.createPane('pane_NAPS_6');
+        map.getPane('pane_NAPS_6').style.zIndex = 406;
+        map.getPane('pane_NAPS_6').style['mix-blend-mode'] = 'normal';
+        var layer_NAPS_6 = new L.geoJson(json_NAPS_6, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_NAPS_5',
-            layerName: 'layer_NAPS_5',
-            pane: 'pane_NAPS_5',
-            onEachFeature: pop_NAPS_5,
+            dataVar: 'json_NAPS_6',
+            layerName: 'layer_NAPS_6',
+            pane: 'pane_NAPS_6',
+            onEachFeature: pop_NAPS_6,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_NAPS_5_0(feature));
+                return L.circleMarker(latlng, style_NAPS_6_0(feature));
             },
         });
-        bounds_group.addLayer(layer_NAPS_5);
-        map.addLayer(layer_NAPS_5);
-        function pop_MANGAS_LINEALES_6(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">ETIQUETA</th>\
-                        <td>' + (feature.properties['ETIQUETA'] !== null ? autolinker.link(feature.properties['ETIQUETA'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
-        }
-
-        function style_MANGAS_LINEALES_6_0() {
-            return {
-                pane: 'pane_MANGAS_LINEALES_6',
-                shape: 'diamond',
-                radius: 6.4,
-                opacity: 1,
-                color: 'rgba(255,127,0,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 2.0,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(255,127,0,1.0)',
-                interactive: true,
-            }
-        }
-        map.createPane('pane_MANGAS_LINEALES_6');
-        map.getPane('pane_MANGAS_LINEALES_6').style.zIndex = 406;
-        map.getPane('pane_MANGAS_LINEALES_6').style['mix-blend-mode'] = 'normal';
-        var layer_MANGAS_LINEALES_6 = new L.geoJson(json_MANGAS_LINEALES_6, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_MANGAS_LINEALES_6',
-            layerName: 'layer_MANGAS_LINEALES_6',
-            pane: 'pane_MANGAS_LINEALES_6',
-            onEachFeature: pop_MANGAS_LINEALES_6,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.shapeMarker(latlng, style_MANGAS_LINEALES_6_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_MANGAS_LINEALES_6);
-        map.addLayer(layer_MANGAS_LINEALES_6);
+        bounds_group.addLayer(layer_NAPS_6);
+        map.addLayer(layer_NAPS_6);
         var osmGeocoder = new L.Control.Geocoder({
             collapsed: true,
             position: 'topleft',
@@ -458,9 +458,9 @@
         .title += 'Search for a place';
         var baseMaps = {};
         var overlaysTree = [
-            {label: '<img src="legend/MANGAS_LINEALES_6.png" /> MANGAS_LINEALES', layer: layer_MANGAS_LINEALES_6},
-            {label: '<img src="legend/NAPS_5.png" /> NAPS', layer: layer_NAPS_5},
-            {label: '<img src="legend/DOMOS_4.png" /> DOMOS', layer: layer_DOMOS_4},
+            {label: '<img src="legend/NAPS_6.png" /> NAPS', layer: layer_NAPS_6},
+            {label: '<img src="legend/DOMOS_5.png" /> DOMOS', layer: layer_DOMOS_5},
+            {label: '<img src="legend/MANGAS_LINEALES_4.png" /> MANGAS_LINEALES', layer: layer_MANGAS_LINEALES_4},
             {label: '<img src="legend/FIBRA_ADSS_08H_3.png" /> FIBRA_ADSS_08H', layer: layer_FIBRA_ADSS_08H_3},
             {label: '<img src="legend/POSTES_EERSSA_2.png" /> POSTES_EERSSA', layer: layer_POSTES_EERSSA_2},
             {label: '<img src="legend/POSTES_CNT_1.png" /> POSTES_CNT', layer: layer_POSTES_CNT_1},
@@ -503,12 +503,12 @@
               i++;
         });
         var i = 0;
-        layer_DOMOS_4.eachLayer(function(layer) {
+        layer_MANGAS_LINEALES_4.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['ETIQUETA'] !== null?String('<div style="color: #000000; font-size: 14pt; font-weight: bold; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['ETIQUETA']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_DOMOS_4'});
+            layer.bindTooltip((layer.feature.properties['ETIQUETA'] !== null?String('<div style="color: #f6b51c; font-size: 10pt; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['ETIQUETA']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_MANGAS_LINEALES_4'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -516,12 +516,12 @@
               i++;
         });
         var i = 0;
-        layer_NAPS_5.eachLayer(function(layer) {
+        layer_DOMOS_5.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['ETIQUETA'] !== null?String('<div style="color: #f6b51c; font-size: 10pt; font-weight: bold; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['ETIQUETA']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_NAPS_5'});
+            layer.bindTooltip((layer.feature.properties['ETIQUETA'] !== null?String('<div style="color: #000000; font-size: 14pt; font-weight: bold; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['ETIQUETA']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_DOMOS_5'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -529,27 +529,27 @@
               i++;
         });
         var i = 0;
-        layer_MANGAS_LINEALES_6.eachLayer(function(layer) {
+        layer_NAPS_6.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['ETIQUETA'] !== null?String('<div style="color: #f6b51c; font-size: 10pt; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['ETIQUETA']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_MANGAS_LINEALES_6'});
+            layer.bindTooltip((layer.feature.properties['ETIQUETA'] !== null?String('<div style="color: #f6b51c; font-size: 10pt; font-weight: bold; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['ETIQUETA']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_NAPS_6'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
               addLabel(layer, i);
               i++;
         });
-        resetLabels([layer_POSTES_CNT_1,layer_POSTES_EERSSA_2,layer_DOMOS_4,layer_NAPS_5,layer_MANGAS_LINEALES_6]);
+        resetLabels([layer_POSTES_CNT_1,layer_POSTES_EERSSA_2,layer_MANGAS_LINEALES_4,layer_DOMOS_5,layer_NAPS_6]);
         map.on("zoomend", function(){
-            resetLabels([layer_POSTES_CNT_1,layer_POSTES_EERSSA_2,layer_DOMOS_4,layer_NAPS_5,layer_MANGAS_LINEALES_6]);
+            resetLabels([layer_POSTES_CNT_1,layer_POSTES_EERSSA_2,layer_MANGAS_LINEALES_4,layer_DOMOS_5,layer_NAPS_6]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_POSTES_CNT_1,layer_POSTES_EERSSA_2,layer_DOMOS_4,layer_NAPS_5,layer_MANGAS_LINEALES_6]);
+            resetLabels([layer_POSTES_CNT_1,layer_POSTES_EERSSA_2,layer_MANGAS_LINEALES_4,layer_DOMOS_5,layer_NAPS_6]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_POSTES_CNT_1,layer_POSTES_EERSSA_2,layer_DOMOS_4,layer_NAPS_5,layer_MANGAS_LINEALES_6]);
+            resetLabels([layer_POSTES_CNT_1,layer_POSTES_EERSSA_2,layer_MANGAS_LINEALES_4,layer_DOMOS_5,layer_NAPS_6]);
         });
         </script>
     </body>
