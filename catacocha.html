@@ -47,10 +47,11 @@
         <script src="data/MANGAS_LINEALES_5.js"></script>
         <script src="data/DOMOS_6.js"></script>
         <script src="data/NAPS_7.js"></script>
+        <script src="data/SECTORES_8.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[-4.061307963598344,-79.64665599220213],[-4.008026276089817,-79.55735037995832]]);
+        }).fitBounds([[-4.0433857111517675,-79.64338810673152],[-4.003423891607129,-79.57747685997968]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -490,6 +491,59 @@
         });
         bounds_group.addLayer(layer_NAPS_7);
         map.addLayer(layer_NAPS_7);
+        function pop_SECTORES_8(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NOMBRE'] !== null ? autolinker.link(feature.properties['NOMBRE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_SECTORES_8_0() {
+            return {
+                pane: 'pane_SECTORES_8',
+                shape: 'triangle',
+                radius: 3.5999999999999988,
+                opacity: 1,
+                color: 'rgba(255,255,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,0,0,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_SECTORES_8');
+        map.getPane('pane_SECTORES_8').style.zIndex = 408;
+        map.getPane('pane_SECTORES_8').style['mix-blend-mode'] = 'normal';
+        var layer_SECTORES_8 = new L.geoJson(json_SECTORES_8, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_SECTORES_8',
+            layerName: 'layer_SECTORES_8',
+            pane: 'pane_SECTORES_8',
+            onEachFeature: pop_SECTORES_8,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_SECTORES_8_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_SECTORES_8);
+        map.addLayer(layer_SECTORES_8);
         var osmGeocoder = new L.Control.Geocoder({
             collapsed: true,
             position: 'topleft',
@@ -502,6 +556,7 @@
         .title += 'Search for a place';
         var baseMaps = {};
         var overlaysTree = [
+            {label: '<img src="legend/SECTORES_8.png" /> SECTORES', layer: layer_SECTORES_8},
             {label: '<img src="legend/NAPS_7.png" /> NAPS', layer: layer_NAPS_7},
             {label: '<img src="legend/DOMOS_6.png" /> DOMOS', layer: layer_DOMOS_6},
             {label: '<img src="legend/MANGAS_LINEALES_5.png" /> MANGAS_LINEALES', layer: layer_MANGAS_LINEALES_5},
@@ -579,22 +634,35 @@
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['ETIQUETA'] !== null?String('<div style="color: #f6b51c; font-size: 10pt; font-weight: bold; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['ETIQUETA']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_NAPS_7'});
+            layer.bindTooltip((layer.feature.properties['ETIQUETA'] !== null?String('<div style="color: #f5720d; font-size: 11pt; font-weight: bold; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['ETIQUETA']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_NAPS_7'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
               addLabel(layer, i);
               i++;
         });
-        resetLabels([layer_POSTES_CNT_1,layer_POSTES_EERSSA_2,layer_MANGAS_LINEALES_5,layer_DOMOS_6,layer_NAPS_7]);
+        var i = 0;
+        layer_SECTORES_8.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['NOMBRE'] !== null?String('<div style="color: #000000; font-size: 10pt; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['NOMBRE']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_SECTORES_8'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        resetLabels([layer_POSTES_CNT_1,layer_POSTES_EERSSA_2,layer_MANGAS_LINEALES_5,layer_DOMOS_6,layer_NAPS_7,layer_SECTORES_8]);
         map.on("zoomend", function(){
-            resetLabels([layer_POSTES_CNT_1,layer_POSTES_EERSSA_2,layer_MANGAS_LINEALES_5,layer_DOMOS_6,layer_NAPS_7]);
+            resetLabels([layer_POSTES_CNT_1,layer_POSTES_EERSSA_2,layer_MANGAS_LINEALES_5,layer_DOMOS_6,layer_NAPS_7,layer_SECTORES_8]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_POSTES_CNT_1,layer_POSTES_EERSSA_2,layer_MANGAS_LINEALES_5,layer_DOMOS_6,layer_NAPS_7]);
+            resetLabels([layer_POSTES_CNT_1,layer_POSTES_EERSSA_2,layer_MANGAS_LINEALES_5,layer_DOMOS_6,layer_NAPS_7,layer_SECTORES_8]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_POSTES_CNT_1,layer_POSTES_EERSSA_2,layer_MANGAS_LINEALES_5,layer_DOMOS_6,layer_NAPS_7]);
+            resetLabels([layer_POSTES_CNT_1,layer_POSTES_EERSSA_2,layer_MANGAS_LINEALES_5,layer_DOMOS_6,layer_NAPS_7,layer_SECTORES_8]);
         });
         </script>
     </body>
