@@ -53,7 +53,7 @@
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[-4.043488753430919,-79.67182623862149],[-4.03412287921211,-79.65637829016399]]);
+        }).fitBounds([[-4.027834421253569,-79.65271723274147],[-4.026188052203324,-79.6499577742273]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -229,6 +229,9 @@
                         <th scope="row">NRO_POSTE</th>\
                         <td>' + (feature.properties['NRO_POSTE'] !== null ? autolinker.link(feature.properties['NRO_POSTE'].toLocaleString()) : '') + '</td>\
                     </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['TRAFO'] !== null ? autolinker.link(feature.properties['TRAFO'].toLocaleString()) : '') + '</td>\
+                    </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
 			layer.on('popupopen', function(e) {
@@ -236,9 +239,14 @@
 			});
 			layer.bindPopup(content, { maxHeight: 400 });
         }
-
-        function style_POSTES_EERSSA_3_0() {
-            return {
+        function style_POSTES_EERSSA_3_0(feature) {
+            var context = {
+                feature: feature,
+                variables: {}
+            };
+            // Start of if blocks and style check logic
+            if (exp_POSTES_EERSSA_3rule0_eval_expression(context)) {
+                  return {
                 pane: 'pane_POSTES_EERSSA_3',
                 radius: 4.0,
                 opacity: 1,
@@ -251,6 +259,26 @@
                 fillOpacity: 1,
                 fillColor: 'rgba(178,223,138,1.0)',
                 interactive: true,
+            };
+                }
+                else if (exp_POSTES_EERSSA_3rule1_eval_expression(context)) {
+                  return {
+                pane: 'pane_POSTES_EERSSA_3',
+                radius: 3.8,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(178,223,138,1.0)',
+                interactive: true,
+            };
+                }
+            else {
+                return {fill: false, stroke: false};
             }
         }
         map.createPane('pane_POSTES_EERSSA_3');
@@ -657,7 +685,7 @@
             {label: '<img src="legend/FIBRA_ADSS_12H_6.png" /> FIBRA_ADSS_12H', layer: layer_FIBRA_ADSS_12H_6},
             {label: '<img src="legend/FIBRA_ADSS_08H_5.png" /> FIBRA_ADSS_08H', layer: layer_FIBRA_ADSS_08H_5},
             {label: '<img src="legend/FIBRA_ADSS_24H_4.png" /> FIBRA_ADSS_24H', layer: layer_FIBRA_ADSS_24H_4},
-            {label: '<img src="legend/POSTES_EERSSA_3.png" /> POSTES_EERSSA', layer: layer_POSTES_EERSSA_3},
+            {label: 'POSTES_EERSSA<br /><table><tr><td style="text-align: center;"><img src="legend/POSTES_EERSSA_3_0.png" /></td><td></td></tr><tr><td style="text-align: center;"><img src="legend/POSTES_EERSSA_3_POSTETRF1.png" /></td><td>POSTE_TRF</td></tr></table>', layer: layer_POSTES_EERSSA_3},
             {label: '<img src="legend/POSTES_CNT_2.png" /> POSTES_CNT', layer: layer_POSTES_CNT_2},
             {label: '<img src="legend/POSTE_METALICO_1.png" /> POSTE_METALICO', layer: layer_POSTE_METALICO_1},
             {label: "Google Satellite", layer: layer_GoogleSatellite_0},]
