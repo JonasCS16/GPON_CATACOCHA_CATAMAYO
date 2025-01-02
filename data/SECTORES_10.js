@@ -9,6 +9,10 @@ var json_SECTORES_10 = {
 { "type": "Feature", "properties": { "id": null, "NOMBRE": "Naranjo Palto" }, "geometry": { "type": "Point", "coordinates": [ -79.608304763714031, -4.023161064216914 ] } },
 { "type": "Feature", "properties": { "id": null, "NOMBRE": "Barrio Chapango" }, "geometry": { "type": "Point", "coordinates": [ -79.635775588355997, -4.039508939125804 ] } },
 { "type": "Feature", "properties": { "id": null, "NOMBRE": "Agua Rusia" }, "geometry": { "type": "Point", "coordinates": [ -79.598716425819035, -4.0030489804622 ] } },
-{ "type": "Feature", "properties": { "id": null, "NOMBRE": "Sigiro" }, "geometry": { "type": "Point", "coordinates": [ -79.590302139033909, -3.990319931228193 ] } }
+{ "type": "Feature", "properties": { "id": null, "NOMBRE": "Sigiro" }, "geometry": { "type": "Point", "coordinates": [ -79.590302139033909, -3.990319931228193 ] } },
+{ "type": "Feature", "properties": { "id": null, "NOMBRE": "El Sauce" }, "geometry": { "type": "Point", "coordinates": [ -79.653095585482063, -4.026537286912873 ] } },
+{ "type": "Feature", "properties": { "id": null, "NOMBRE": "El Puron" }, "geometry": { "type": "Point", "coordinates": [ -79.662311653799577, -4.031895146946743 ] } },
+{ "type": "Feature", "properties": { "id": null, "NOMBRE": "Ongonga" }, "geometry": { "type": "Point", "coordinates": [ -79.666439071368757, -4.039565944238129 ] } },
+{ "type": "Feature", "properties": { "id": null, "NOMBRE": "Opoluca" }, "geometry": { "type": "Point", "coordinates": [ -79.67366597551559, -4.0210228419118 ] } }
 ]
 }
