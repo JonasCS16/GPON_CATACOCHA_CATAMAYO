@@ -13,6 +13,9 @@ var json_MANGAS_LINEALES_7 = {
 { "type": "Feature", "properties": { "id": null, "ETIQUETA": "MG_LINEAL_10" }, "geometry": { "type": "Point", "coordinates": [ -79.465281235754773, -3.962407043589986 ] } },
 { "type": "Feature", "properties": { "id": null, "ETIQUETA": "MG_LINEAL_11" }, "geometry": { "type": "Point", "coordinates": [ -79.439481830771896, -3.970714089710095 ] } },
 { "type": "Feature", "properties": { "id": null, "ETIQUETA": "MG_LINEAL_12" }, "geometry": { "type": "Point", "coordinates": [ -79.444375295577316, -3.949660808533731 ] } },
-{ "type": "Feature", "properties": { "id": null, "ETIQUETA": "MG_LINEAL_01" }, "geometry": { "type": "Point", "coordinates": [ -79.637433377335526, -4.048836016835455 ] } }
+{ "type": "Feature", "properties": { "id": null, "ETIQUETA": "MG_LINEAL_01" }, "geometry": { "type": "Point", "coordinates": [ -79.637433377335526, -4.048836016835455 ] } },
+{ "type": "Feature", "properties": { "id": null, "ETIQUETA": "MG_LINEAL_01" }, "geometry": { "type": "Point", "coordinates": [ -79.653818353938036, -4.036360482550903 ] } },
+{ "type": "Feature", "properties": { "id": null, "ETIQUETA": "MG_LINEAL_02" }, "geometry": { "type": "Point", "coordinates": [ -79.649106945369198, -4.031894585775835 ] } },
+{ "type": "Feature", "properties": { "id": null, "ETIQUETA": "MG_LINEAL_03" }, "geometry": { "type": "Point", "coordinates": [ -79.65759699099435, -4.030925931996941 ] } }
 ]
 }

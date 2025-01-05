@@ -53,7 +53,7 @@
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[-4.040270034675183,-79.70013556636728],[-4.006930922221219,-79.64425653145355]]);
+        }).fitBounds([[-4.041049424937801,-79.66928937075573],[-4.035775169175393,-79.66040995630573]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -239,14 +239,9 @@
 			});
 			layer.bindPopup(content, { maxHeight: 400 });
         }
-        function style_POSTES_EERSSA_3_0(feature) {
-            var context = {
-                feature: feature,
-                variables: {}
-            };
-            // Start of if blocks and style check logic
-            if (exp_POSTES_EERSSA_3rule0_eval_expression(context)) {
-                  return {
+
+        function style_POSTES_EERSSA_3_0() {
+            return {
                 pane: 'pane_POSTES_EERSSA_3',
                 radius: 4.0,
                 opacity: 1,
@@ -259,26 +254,6 @@
                 fillOpacity: 1,
                 fillColor: 'rgba(178,223,138,1.0)',
                 interactive: true,
-            };
-                }
-                else if (exp_POSTES_EERSSA_3rule1_eval_expression(context)) {
-                  return {
-                pane: 'pane_POSTES_EERSSA_3',
-                radius: 3.8,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(178,223,138,1.0)',
-                interactive: true,
-            };
-                }
-            else {
-                return {fill: false, stroke: false};
             }
         }
         map.createPane('pane_POSTES_EERSSA_3');
@@ -388,6 +363,9 @@
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['RAMAL'] !== null ? autolinker.link(feature.properties['RAMAL'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -535,11 +513,11 @@
         function pop_NAPS_9(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">id</th>\
+                        <td>' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">NRO_POSTE</th>\
-                        <td>' + (feature.properties['NRO_POSTE'] !== null ? autolinker.link(feature.properties['NRO_POSTE'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>NRO_POSTE</strong><br />' + (feature.properties['NRO_POSTE'] !== null ? autolinker.link(feature.properties['NRO_POSTE'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">DOMO_RAIZ</th>\
@@ -685,7 +663,7 @@
             {label: '<img src="legend/FIBRA_ADSS_12H_6.png" /> FIBRA_ADSS_12H', layer: layer_FIBRA_ADSS_12H_6},
             {label: '<img src="legend/FIBRA_ADSS_08H_5.png" /> FIBRA_ADSS_08H', layer: layer_FIBRA_ADSS_08H_5},
             {label: '<img src="legend/FIBRA_ADSS_24H_4.png" /> FIBRA_ADSS_24H', layer: layer_FIBRA_ADSS_24H_4},
-            {label: 'POSTES_EERSSA<br /><table><tr><td style="text-align: center;"><img src="legend/POSTES_EERSSA_3_0.png" /></td><td></td></tr><tr><td style="text-align: center;"><img src="legend/POSTES_EERSSA_3_POSTETRF1.png" /></td><td>POSTE_TRF</td></tr></table>', layer: layer_POSTES_EERSSA_3},
+            {label: '<img src="legend/POSTES_EERSSA_3.png" /> POSTES_EERSSA', layer: layer_POSTES_EERSSA_3},
             {label: '<img src="legend/POSTES_CNT_2.png" /> POSTES_CNT', layer: layer_POSTES_CNT_2},
             {label: '<img src="legend/POSTE_METALICO_1.png" /> POSTE_METALICO', layer: layer_POSTE_METALICO_1},
             {label: "Google Satellite", layer: layer_GoogleSatellite_0},]
