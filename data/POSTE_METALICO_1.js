@@ -24,6 +24,7 @@ var json_POSTE_METALICO_1 = {
 { "type": "Feature", "properties": { "id": null, "ALTURA": "PM08m" }, "geometry": { "type": "Point", "coordinates": [ -79.681732558787786, -4.028531277812428 ] } },
 { "type": "Feature", "properties": { "id": null, "ALTURA": "PM06m" }, "geometry": { "type": "Point", "coordinates": [ -79.681161364898415, -4.027873728948178 ] } },
 { "type": "Feature", "properties": { "id": null, "ALTURA": "PM06m" }, "geometry": { "type": "Point", "coordinates": [ -79.680963053083516, -4.027231503802986 ] } },
-{ "type": "Feature", "properties": { "id": null, "ALTURA": "PM06m" }, "geometry": { "type": "Point", "coordinates": [ -79.68082130203274, -4.026842128441046 ] } }
+{ "type": "Feature", "properties": { "id": null, "ALTURA": "PM06m" }, "geometry": { "type": "Point", "coordinates": [ -79.68082130203274, -4.026842128441046 ] } },
+{ "type": "Feature", "properties": { "id": null, "ALTURA": "PM08m" }, "geometry": { "type": "Point", "coordinates": [ -79.678023289912048, -4.024733840661359 ] } }
 ]
 }

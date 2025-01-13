@@ -13,6 +13,6 @@ var json_DOMOS_8 = {
 { "type": "Feature", "properties": { "id": null, "ETIQUETA": null }, "geometry": { "type": "Point", "coordinates": [ -79.590672644665929, -3.990180782578091 ] } },
 { "type": "Feature", "properties": { "id": null, "ETIQUETA": "H1D12" }, "geometry": { "type": "Point", "coordinates": [ -79.662856370036053, -4.031512922191317 ] } },
 { "type": "Feature", "properties": { "id": null, "ETIQUETA": "H1D12.1" }, "geometry": { "type": "Point", "coordinates": [ -79.67181434833735, -4.026524241191617 ] } },
-{ "type": "Feature", "properties": { "id": null, "ETIQUETA": "H1D13" }, "geometry": { "type": "Point", "coordinates": [ -79.677376410593453, -4.038079271237934 ] } }
+{ "type": "Feature", "properties": { "id": null, "ETIQUETA": "H1D13" }, "geometry": { "type": "Point", "coordinates": [ -79.677396854233876, -4.038158278698479 ] } }
 ]
 }
