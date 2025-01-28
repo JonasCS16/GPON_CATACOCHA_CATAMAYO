@@ -201,6 +201,12 @@ var json_POSTES_EERSSA_3 = {
 { "type": "Feature", "properties": { "id": null, "NRO_POSTE": "246974", "TRAFO": "FALSE" }, "geometry": { "type": "Point", "coordinates": [ -79.678099480131991, -4.037546555004177 ] } },
 { "type": "Feature", "properties": { "id": null, "NRO_POSTE": "246450", "TRAFO": "FALSE" }, "geometry": { "type": "Point", "coordinates": [ -79.677643890547884, -4.037710011583013 ] } },
 { "type": "Feature", "properties": { "id": null, "NRO_POSTE": "246524", "TRAFO": "FALSE" }, "geometry": { "type": "Point", "coordinates": [ -79.677396854233876, -4.038158278698474 ] } },
-{ "type": "Feature", "properties": { "id": null, "NRO_POSTE": "112071", "TRAFO": "TRUE" }, "geometry": { "type": "Point", "coordinates": [ -79.677355733239395, -4.023940691796192 ] } }
+{ "type": "Feature", "properties": { "id": null, "NRO_POSTE": "112071", "TRAFO": "TRUE" }, "geometry": { "type": "Point", "coordinates": [ -79.677355733239395, -4.023940691796192 ] } },
+{ "type": "Feature", "properties": { "id": null, "NRO_POSTE": "246521", "TRAFO": "FALSE" }, "geometry": { "type": "Point", "coordinates": [ -79.680256595731777, -4.03608711695535 ] } },
+{ "type": "Feature", "properties": { "id": null, "NRO_POSTE": "246560", "TRAFO": "FALSE" }, "geometry": { "type": "Point", "coordinates": [ -79.68086698064441, -4.035572279832591 ] } },
+{ "type": "Feature", "properties": { "id": null, "NRO_POSTE": "246522", "TRAFO": "FALSE" }, "geometry": { "type": "Point", "coordinates": [ -79.681321823455761, -4.035149125788694 ] } },
+{ "type": "Feature", "properties": { "id": null, "NRO_POSTE": "246449", "TRAFO": "FALSE" }, "geometry": { "type": "Point", "coordinates": [ -79.681859150714729, -4.034725971524336 ] } },
+{ "type": "Feature", "properties": { "id": null, "NRO_POSTE": "259787", "TRAFO": "FALSE" }, "geometry": { "type": "Point", "coordinates": [ -79.682184375108335, -4.034549657182456 ] } },
+{ "type": "Feature", "properties": { "id": null, "NRO_POSTE": "259786", "TRAFO": "TRUE" }, "geometry": { "type": "Point", "coordinates": [ -79.682930508383421, -4.034373296983372 ] } }
 ]
 }
