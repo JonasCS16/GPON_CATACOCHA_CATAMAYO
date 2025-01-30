@@ -13,6 +13,9 @@ var json_SECTORES_10 = {
 { "type": "Feature", "properties": { "id": null, "NOMBRE": "El Sauce" }, "geometry": { "type": "Point", "coordinates": [ -79.653095585482063, -4.026537286912873 ] } },
 { "type": "Feature", "properties": { "id": null, "NOMBRE": "El Puron" }, "geometry": { "type": "Point", "coordinates": [ -79.662311653799577, -4.031895146946743 ] } },
 { "type": "Feature", "properties": { "id": null, "NOMBRE": "Ongonga" }, "geometry": { "type": "Point", "coordinates": [ -79.666439071368757, -4.039565944238129 ] } },
-{ "type": "Feature", "properties": { "id": null, "NOMBRE": "Opoluca" }, "geometry": { "type": "Point", "coordinates": [ -79.67366597551559, -4.0210228419118 ] } }
+{ "type": "Feature", "properties": { "id": null, "NOMBRE": "Opoluca" }, "geometry": { "type": "Point", "coordinates": [ -79.67366597551559, -4.0210228419118 ] } },
+{ "type": "Feature", "properties": { "id": null, "NOMBRE": "Puente Playas" }, "geometry": { "type": "Point", "coordinates": [ -79.693019326538632, -4.028531354760899 ] } },
+{ "type": "Feature", "properties": { "id": null, "NOMBRE": "Yamana" }, "geometry": { "type": "Point", "coordinates": [ -79.698418007284374, -3.998051536799214 ] } },
+{ "type": "Feature", "properties": { "id": null, "NOMBRE": "Palo Blanco" }, "geometry": { "type": "Point", "coordinates": [ -79.710295104925038, -4.027638756210623 ] } }
 ]
 }
