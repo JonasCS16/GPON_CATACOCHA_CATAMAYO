@@ -16,6 +16,7 @@ var json_SECTORES_10 = {
 { "type": "Feature", "properties": { "id": null, "NOMBRE": "Opoluca" }, "geometry": { "type": "Point", "coordinates": [ -79.67366597551559, -4.0210228419118 ] } },
 { "type": "Feature", "properties": { "id": null, "NOMBRE": "Puente Playas" }, "geometry": { "type": "Point", "coordinates": [ -79.693019326538632, -4.028531354760899 ] } },
 { "type": "Feature", "properties": { "id": null, "NOMBRE": "Yamana" }, "geometry": { "type": "Point", "coordinates": [ -79.698418007284374, -3.998051536799214 ] } },
-{ "type": "Feature", "properties": { "id": null, "NOMBRE": "Palo Blanco" }, "geometry": { "type": "Point", "coordinates": [ -79.710295104925038, -4.027638756210623 ] } }
+{ "type": "Feature", "properties": { "id": null, "NOMBRE": "Palo Blanco" }, "geometry": { "type": "Point", "coordinates": [ -79.710295104925038, -4.027638756210623 ] } },
+{ "type": "Feature", "properties": { "id": null, "NOMBRE": "Mongara" }, "geometry": { "type": "Point", "coordinates": [ -79.722381333589425, -4.029804802980572 ] } }
 ]
 }
