@@ -35,6 +35,26 @@ var json_POSTES_CNT_2 = {
 { "type": "Feature", "properties": { "id": null, "NRO_POSTE": "CNT332" }, "geometry": { "type": "Point", "coordinates": [ -79.689773935708132, -4.033572110044133 ] } },
 { "type": "Feature", "properties": { "id": null, "NRO_POSTE": "CNT355" }, "geometry": { "type": "Point", "coordinates": [ -79.711230056511042, -4.028162981336125 ] } },
 { "type": "Feature", "properties": { "id": null, "NRO_POSTE": "CNT354" }, "geometry": { "type": "Point", "coordinates": [ -79.709033020878181, -4.028287666174622 ] } },
-{ "type": "Feature", "properties": { "id": null, "NRO_POSTE": "CNT01" }, "geometry": { "type": "Point", "coordinates": [ -79.693563, -4.025297 ] } }
+{ "type": "Feature", "properties": { "id": null, "NRO_POSTE": "CNT01" }, "geometry": { "type": "Point", "coordinates": [ -79.693563, -4.025297 ] } },
+{ "type": "Feature", "properties": { "id": null, "NRO_POSTE": "CNT359" }, "geometry": { "type": "Point", "coordinates": [ -79.71312, -4.029337 ] } },
+{ "type": "Feature", "properties": { "id": null, "NRO_POSTE": "CNT360" }, "geometry": { "type": "Point", "coordinates": [ -79.714025, -4.02985 ] } },
+{ "type": "Feature", "properties": { "id": null, "NRO_POSTE": "CNT361" }, "geometry": { "type": "Point", "coordinates": [ -79.714774125259638, -4.029637984861367 ] } },
+{ "type": "Feature", "properties": { "id": null, "NRO_POSTE": "CNT362" }, "geometry": { "type": "Point", "coordinates": [ -79.715409993975399, -4.029852088607178 ] } },
+{ "type": "Feature", "properties": { "id": null, "NRO_POSTE": "CNT363" }, "geometry": { "type": "Point", "coordinates": [ -79.716260497077144, -4.03046119628163 ] } },
+{ "type": "Feature", "properties": { "id": null, "NRO_POSTE": "CNT364" }, "geometry": { "type": "Point", "coordinates": [ -79.717077714632396, -4.03099702746764 ] } },
+{ "type": "Feature", "properties": { "id": null, "NRO_POSTE": "CNT365" }, "geometry": { "type": "Point", "coordinates": [ -79.717471402302976, -4.03105312943037 ] } },
+{ "type": "Feature", "properties": { "id": null, "NRO_POSTE": "CNT366" }, "geometry": { "type": "Point", "coordinates": [ -79.718173842111739, -4.030791511060905 ] } },
+{ "type": "Feature", "properties": { "id": null, "NRO_POSTE": "CNT367" }, "geometry": { "type": "Point", "coordinates": [ -79.719179869060071, -4.030304339649683 ] } },
+{ "type": "Feature", "properties": { "id": null, "NRO_POSTE": "CNT368" }, "geometry": { "type": "Point", "coordinates": [ -79.719568965620795, -4.030144048169721 ] } },
+{ "type": "Feature", "properties": { "id": null, "NRO_POSTE": "CNT369" }, "geometry": { "type": "Point", "coordinates": [ -79.719792, -4.030048 ] } },
+{ "type": "Feature", "properties": { "id": null, "NRO_POSTE": "CNT370" }, "geometry": { "type": "Point", "coordinates": [ -79.720807, -4.030128 ] } },
+{ "type": "Feature", "properties": { "id": null, "NRO_POSTE": "CNT371" }, "geometry": { "type": "Point", "coordinates": [ -79.721397, -4.030307 ] } },
+{ "type": "Feature", "properties": { "id": null, "NRO_POSTE": "CNT372" }, "geometry": { "type": "Point", "coordinates": [ -79.721723343923188, -4.030616907944736 ] } },
+{ "type": "Feature", "properties": { "id": null, "NRO_POSTE": "CNT373" }, "geometry": { "type": "Point", "coordinates": [ -79.721973, -4.03116 ] } },
+{ "type": "Feature", "properties": { "id": null, "NRO_POSTE": "CNT374" }, "geometry": { "type": "Point", "coordinates": [ -79.722698, -4.031222 ] } },
+{ "type": "Feature", "properties": { "id": null, "NRO_POSTE": "CNT375" }, "geometry": { "type": "Point", "coordinates": [ -79.723966674979096, -4.030810975012522 ] } },
+{ "type": "Feature", "properties": { "id": null, "NRO_POSTE": "CNT376" }, "geometry": { "type": "Point", "coordinates": [ -79.72472, -4.030463 ] } },
+{ "type": "Feature", "properties": { "id": null, "NRO_POSTE": "CNT377" }, "geometry": { "type": "Point", "coordinates": [ -79.725720192001674, -4.029966010096017 ] } },
+{ "type": "Feature", "properties": { "id": null, "NRO_POSTE": "CNT378" }, "geometry": { "type": "Point", "coordinates": [ -79.725637552024196, -4.029776665703158 ] } }
 ]
 }
