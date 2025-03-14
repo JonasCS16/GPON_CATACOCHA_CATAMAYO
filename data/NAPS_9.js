@@ -94,6 +94,6 @@ var json_NAPS_9 = {
 { "type": "Feature", "properties": { "id": null, "NRO_POSTE": "112907", "DOMO_RAIZ": "H1D3", "ETIQUETA": "N2", "HILO": "1\/2", "POTENCIA": null, "CORE": "PLAYAS-PALO BLANCO", "TRJ_OLT": "01", "PORT_OLT": "07" }, "geometry": { "type": "Point", "coordinates": [ -79.737032316118714, -4.031025889586402 ] } },
 { "type": "Feature", "properties": { "id": null, "NRO_POSTE": "112900", "DOMO_RAIZ": "H1D3", "ETIQUETA": "N3", "HILO": "1\/3", "POTENCIA": null, "CORE": "PLAYAS-PALO BLANCO", "TRJ_OLT": "01", "PORT_OLT": "07" }, "geometry": { "type": "Point", "coordinates": [ -79.733772089360897, -4.029642151080875 ] } },
 { "type": "Feature", "properties": { "id": null, "NRO_POSTE": "112914", "DOMO_RAIZ": "H1D3", "ETIQUETA": "N4", "HILO": "1\/4", "POTENCIA": null, "CORE": "PLAYAS-PALO BLANCO", "TRJ_OLT": "01", "PORT_OLT": "07" }, "geometry": { "type": "Point", "coordinates": [ -79.730494509433299, -4.029358695365421 ] } },
-{ "type": "Feature", "properties": { "id": null, "NRO_POSTE": null, "DOMO_RAIZ": "H1D3", "ETIQUETA": "N8", "HILO": "1\/4", "POTENCIA": null, "CORE": null, "TRJ_OLT": null, "PORT_OLT": null }, "geometry": { "type": "Point", "coordinates": [ -79.74249746888087, -4.037011850882811 ] } }
+{ "type": "Feature", "properties": { "id": null, "NRO_POSTE": null, "DOMO_RAIZ": "H1D3", "ETIQUETA": "N8", "HILO": "1\/4", "POTENCIA": null, "CORE": null, "TRJ_OLT": null, "PORT_OLT": null }, "geometry": { "type": "Point", "coordinates": [ -79.742490648462379, -4.037024430931034 ] } }
 ]
 }
