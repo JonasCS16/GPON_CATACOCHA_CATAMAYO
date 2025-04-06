@@ -30,6 +30,7 @@
         <script src="js/leaflet.js"></script>
         <script src="js/L.Control.Layers.Tree.min.js"></script>
         <script src="js/L.Control.Locate.min.js"></script>
+        <script src="js/multi-style-layer.js"></script>
         <script src="js/leaflet-svg-shape-markers.min.js"></script>
         <script src="js/leaflet.rotatedMarker.js"></script>
         <script src="js/leaflet.pattern.js"></script>
@@ -47,13 +48,14 @@
         <script src="data/FIBRA_ADSS_08H_5.js"></script>
         <script src="data/FIBRA_ADSS_12H_6.js"></script>
         <script src="data/MANGAS_LINEALES_7.js"></script>
-        <script src="data/DOMOS_8.js"></script>
-        <script src="data/NAPS_9.js"></script>
-        <script src="data/SECTORES_10.js"></script>
+        <script src="data/NODO_8.js"></script>
+        <script src="data/DOMOS_9.js"></script>
+        <script src="data/NAPS_10.js"></script>
+        <script src="data/SECTORES_11.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[-4.0559028367912715,-79.8842671145926],[-4.03516702742247,-79.85119143085272]]);
+        }).fitBounds([[-4.158530404666132,-79.91821249405955],[-3.8785879674752266,-79.48517208418578]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -456,7 +458,81 @@
         });
         bounds_group.addLayer(layer_MANGAS_LINEALES_7);
         map.addLayer(layer_MANGAS_LINEALES_7);
-        function pop_DOMOS_8(feature, layer) {
+        function pop_NODO_8(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NOMBRE'] !== null ? autolinker.link(feature.properties['NOMBRE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_NODO_8_0() {
+            return {
+                pane: 'pane_NODO_8',
+                radius: 7.6,
+                opacity: 1,
+                color: 'rgba(250,139,57,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 4.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,255,1.0)',
+                interactive: true,
+            }
+        }
+        function style_NODO_8_1() {
+            return {
+                pane: 'pane_NODO_8',
+                radius: 3.1090909090909085,
+                opacity: 1,
+                color: 'rgba(250,176,124,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(250,176,124,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_NODO_8');
+        map.getPane('pane_NODO_8').style.zIndex = 408;
+        map.getPane('pane_NODO_8').style['mix-blend-mode'] = 'normal';
+        var layer_NODO_8 = new L.geoJson.multiStyle(json_NODO_8, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_NODO_8',
+            layerName: 'layer_NODO_8',
+            pane: 'pane_NODO_8',
+            onEachFeature: pop_NODO_8,
+            pointToLayers: [function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_NODO_8_0(feature));
+            },function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_NODO_8_1(feature));
+            },
+        ]});
+        bounds_group.addLayer(layer_NODO_8);
+        map.addLayer(layer_NODO_8);
+        function pop_DOMOS_9(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
@@ -473,9 +549,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_DOMOS_8_0() {
+        function style_DOMOS_9_0() {
             return {
-                pane: 'pane_DOMOS_8',
+                pane: 'pane_DOMOS_9',
                 shape: 'diamond',
                 radius: 6.8,
                 opacity: 1,
@@ -490,27 +566,27 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_DOMOS_8');
-        map.getPane('pane_DOMOS_8').style.zIndex = 408;
-        map.getPane('pane_DOMOS_8').style['mix-blend-mode'] = 'normal';
-        var layer_DOMOS_8 = new L.geoJson(json_DOMOS_8, {
+        map.createPane('pane_DOMOS_9');
+        map.getPane('pane_DOMOS_9').style.zIndex = 409;
+        map.getPane('pane_DOMOS_9').style['mix-blend-mode'] = 'normal';
+        var layer_DOMOS_9 = new L.geoJson(json_DOMOS_9, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_DOMOS_8',
-            layerName: 'layer_DOMOS_8',
-            pane: 'pane_DOMOS_8',
-            onEachFeature: pop_DOMOS_8,
+            dataVar: 'json_DOMOS_9',
+            layerName: 'layer_DOMOS_9',
+            pane: 'pane_DOMOS_9',
+            onEachFeature: pop_DOMOS_9,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.shapeMarker(latlng, style_DOMOS_8_0(feature));
+                return L.shapeMarker(latlng, style_DOMOS_9_0(feature));
             },
         });
-        bounds_group.addLayer(layer_DOMOS_8);
-        map.addLayer(layer_DOMOS_8);
-        function pop_NAPS_9(feature, layer) {
+        bounds_group.addLayer(layer_DOMOS_9);
+        map.addLayer(layer_DOMOS_9);
+        function pop_NAPS_10(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">id</th>\
@@ -556,9 +632,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_NAPS_9_0() {
+        function style_NAPS_10_0() {
             return {
-                pane: 'pane_NAPS_9',
+                pane: 'pane_NAPS_10',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(228,18,207,1.0)',
@@ -572,27 +648,27 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_NAPS_9');
-        map.getPane('pane_NAPS_9').style.zIndex = 409;
-        map.getPane('pane_NAPS_9').style['mix-blend-mode'] = 'normal';
-        var layer_NAPS_9 = new L.geoJson(json_NAPS_9, {
+        map.createPane('pane_NAPS_10');
+        map.getPane('pane_NAPS_10').style.zIndex = 410;
+        map.getPane('pane_NAPS_10').style['mix-blend-mode'] = 'normal';
+        var layer_NAPS_10 = new L.geoJson(json_NAPS_10, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_NAPS_9',
-            layerName: 'layer_NAPS_9',
-            pane: 'pane_NAPS_9',
-            onEachFeature: pop_NAPS_9,
+            dataVar: 'json_NAPS_10',
+            layerName: 'layer_NAPS_10',
+            pane: 'pane_NAPS_10',
+            onEachFeature: pop_NAPS_10,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_NAPS_9_0(feature));
+                return L.circleMarker(latlng, style_NAPS_10_0(feature));
             },
         });
-        bounds_group.addLayer(layer_NAPS_9);
-        map.addLayer(layer_NAPS_9);
-        function pop_SECTORES_10(feature, layer) {
+        bounds_group.addLayer(layer_NAPS_10);
+        map.addLayer(layer_NAPS_10);
+        function pop_SECTORES_11(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
@@ -608,9 +684,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_SECTORES_10_0() {
+        function style_SECTORES_11_0() {
             return {
-                pane: 'pane_SECTORES_10',
+                pane: 'pane_SECTORES_11',
                 shape: 'triangle',
                 radius: 3.6,
                 opacity: 1,
@@ -625,26 +701,26 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_SECTORES_10');
-        map.getPane('pane_SECTORES_10').style.zIndex = 410;
-        map.getPane('pane_SECTORES_10').style['mix-blend-mode'] = 'normal';
-        var layer_SECTORES_10 = new L.geoJson(json_SECTORES_10, {
+        map.createPane('pane_SECTORES_11');
+        map.getPane('pane_SECTORES_11').style.zIndex = 411;
+        map.getPane('pane_SECTORES_11').style['mix-blend-mode'] = 'normal';
+        var layer_SECTORES_11 = new L.geoJson(json_SECTORES_11, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_SECTORES_10',
-            layerName: 'layer_SECTORES_10',
-            pane: 'pane_SECTORES_10',
-            onEachFeature: pop_SECTORES_10,
+            dataVar: 'json_SECTORES_11',
+            layerName: 'layer_SECTORES_11',
+            pane: 'pane_SECTORES_11',
+            onEachFeature: pop_SECTORES_11,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.shapeMarker(latlng, style_SECTORES_10_0(feature));
+                return L.shapeMarker(latlng, style_SECTORES_11_0(feature));
             },
         });
-        bounds_group.addLayer(layer_SECTORES_10);
-        map.addLayer(layer_SECTORES_10);
+        bounds_group.addLayer(layer_SECTORES_11);
+        map.addLayer(layer_SECTORES_11);
         var osmGeocoder = new L.Control.Geocoder({
             collapsed: true,
             position: 'topleft',
@@ -657,9 +733,10 @@
         .title += 'Search for a place';
         var baseMaps = {};
         var overlaysTree = [
-            {label: '<img src="legend/SECTORES_10.png" /> SECTORES', layer: layer_SECTORES_10},
-            {label: '<img src="legend/NAPS_9.png" /> NAPS', layer: layer_NAPS_9},
-            {label: '<img src="legend/DOMOS_8.png" /> DOMOS', layer: layer_DOMOS_8},
+            {label: '<img src="legend/SECTORES_11.png" /> SECTORES', layer: layer_SECTORES_11},
+            {label: '<img src="legend/NAPS_10.png" /> NAPS', layer: layer_NAPS_10},
+            {label: '<img src="legend/DOMOS_9.png" /> DOMOS', layer: layer_DOMOS_9},
+            {label: '<img src="legend/NODO_8.png" /> NODO', layer: layer_NODO_8},
             {label: '<img src="legend/MANGAS_LINEALES_7.png" /> MANGAS_LINEALES', layer: layer_MANGAS_LINEALES_7},
             {label: '<img src="legend/FIBRA_ADSS_12H_6.png" /> FIBRA_ADSS_12H', layer: layer_FIBRA_ADSS_12H_6},
             {label: '<img src="legend/FIBRA_ADSS_08H_5.png" /> FIBRA_ADSS_08H', layer: layer_FIBRA_ADSS_08H_5},
@@ -732,12 +809,12 @@
               i++;
         });
         var i = 0;
-        layer_DOMOS_8.eachLayer(function(layer) {
+        layer_NODO_8.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['ETIQUETA'] !== null?String('<div style="color: #000000; font-size: 14pt; font-weight: bold; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['ETIQUETA']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_DOMOS_8'});
+            layer.bindTooltip((layer.feature.properties['NOMBRE'] !== null?String('<div style="color: #e412cf; font-size: 10pt; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['NOMBRE']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_NODO_8'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -745,12 +822,12 @@
               i++;
         });
         var i = 0;
-        layer_NAPS_9.eachLayer(function(layer) {
+        layer_DOMOS_9.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['ETIQUETA'] !== null?String('<div style="color: #f5720d; font-size: 11pt; font-weight: bold; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['ETIQUETA']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_NAPS_9'});
+            layer.bindTooltip((layer.feature.properties['ETIQUETA'] !== null?String('<div style="color: #000000; font-size: 14pt; font-weight: bold; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['ETIQUETA']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_DOMOS_9'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -758,27 +835,40 @@
               i++;
         });
         var i = 0;
-        layer_SECTORES_10.eachLayer(function(layer) {
+        layer_NAPS_10.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['NOMBRE'] !== null?String('<div style="color: #000000; font-size: 10pt; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['NOMBRE']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_SECTORES_10'});
+            layer.bindTooltip((layer.feature.properties['ETIQUETA'] !== null?String('<div style="color: #f5720d; font-size: 11pt; font-weight: bold; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['ETIQUETA']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_NAPS_10'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
               addLabel(layer, i);
               i++;
         });
-        resetLabels([layer_POSTE_METALICO_1,layer_POSTES_CNT_2,layer_POSTES_EERSSA_3,layer_MANGAS_LINEALES_7,layer_DOMOS_8,layer_NAPS_9,layer_SECTORES_10]);
+        var i = 0;
+        layer_SECTORES_11.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['NOMBRE'] !== null?String('<div style="color: #000000; font-size: 10pt; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['NOMBRE']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_SECTORES_11'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        resetLabels([layer_POSTE_METALICO_1,layer_POSTES_CNT_2,layer_POSTES_EERSSA_3,layer_MANGAS_LINEALES_7,layer_NODO_8,layer_DOMOS_9,layer_NAPS_10,layer_SECTORES_11]);
         map.on("zoomend", function(){
-            resetLabels([layer_POSTE_METALICO_1,layer_POSTES_CNT_2,layer_POSTES_EERSSA_3,layer_MANGAS_LINEALES_7,layer_DOMOS_8,layer_NAPS_9,layer_SECTORES_10]);
+            resetLabels([layer_POSTE_METALICO_1,layer_POSTES_CNT_2,layer_POSTES_EERSSA_3,layer_MANGAS_LINEALES_7,layer_NODO_8,layer_DOMOS_9,layer_NAPS_10,layer_SECTORES_11]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_POSTE_METALICO_1,layer_POSTES_CNT_2,layer_POSTES_EERSSA_3,layer_MANGAS_LINEALES_7,layer_DOMOS_8,layer_NAPS_9,layer_SECTORES_10]);
+            resetLabels([layer_POSTE_METALICO_1,layer_POSTES_CNT_2,layer_POSTES_EERSSA_3,layer_MANGAS_LINEALES_7,layer_NODO_8,layer_DOMOS_9,layer_NAPS_10,layer_SECTORES_11]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_POSTE_METALICO_1,layer_POSTES_CNT_2,layer_POSTES_EERSSA_3,layer_MANGAS_LINEALES_7,layer_DOMOS_8,layer_NAPS_9,layer_SECTORES_10]);
+            resetLabels([layer_POSTE_METALICO_1,layer_POSTES_CNT_2,layer_POSTES_EERSSA_3,layer_MANGAS_LINEALES_7,layer_NODO_8,layer_DOMOS_9,layer_NAPS_10,layer_SECTORES_11]);
         });
         </script>
     </body>
